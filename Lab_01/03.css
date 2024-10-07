@@ -1,0 +1,22 @@
+div {
+    
+    width: 100px;
+    height: 100px;
+    display:inline-block;
+    margin: 20px;
+}
+#a {
+    background-color: red;
+}
+#b {
+    background-color: purple;
+}
+#c {
+    background-color: green;
+}
+#d {
+    background-color: orange;
+}
+#e {
+    background-image: url("default_dirt.png");
+}
