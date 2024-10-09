@@ -1,0 +1,26 @@
+body {
+    background-color: antiquewhite;
+}
+nav {
+    margin: 0 0 0 0;
+    text-align: center;
+}
+.navigation {
+    font-size: 18px;
+    font-family: Helvetica, sans-serif;
+    padding: 1em;
+    font-weight: bolder;
+}
+footer {
+    font-family: "Times New Roman", monospace;
+    text-align: center;
+}
+label {
+    padding: 0.5em;
+    display: block;
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 4px double black;
+}
