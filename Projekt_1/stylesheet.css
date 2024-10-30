@@ -1,6 +1,5 @@
 body {
-    background-color: antiquewhite;
-    color: #8785A2;
+    color: #434160;
     background-color: floralwhite;
 }
 nav {
@@ -42,12 +41,49 @@ label {
 button {
     background-color: #FFC7C7;
     transition-duration: 0.25s;
-    margin: 1% 10% 1% 10%
+    margin: 1% 5% 1% 5%;
+    color: #434160;
 }
 button:hover {
     background-color: #EEB6B6;
 
 }
 article {
-    background-color: azure;
+    background-color: #FFE2E2;
+}
+#logo {
+    background-image: url("Media/logoProjekt1.png");
+    background-size: 80%;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 10em;
+    height: 3em;
+}
+#message {
+    width: 50%;
+    height: 10em;
+    text-align: start;
+}
+.image {
+    display: inline-table;
+    width: 25%;
+    min-width: 240px;
+    max-width: 360px;
+    height: auto;
+    text-align: center;
+    margin: 0.2em auto;
+}
+#gallery {
+    text-align: center;
+}
+video {
+    border-radius: 30px;
+}
+img {
+    border-radius: 30px;
+    min-width: 240px;
+    max-width: 360px;
+}
+hr {
+    border: #EEB6B6 1px solid
 }

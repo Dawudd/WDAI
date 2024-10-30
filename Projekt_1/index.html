@@ -2,49 +2,105 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cuuksik!</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="script.js"></script>
 </head>
 <body>
     <nav>
         <button class="navigation tablinks" onclick="open_tab(event, 'gallery')">GALERIA</button>
-        <button class="navigation tablinks" onclick="open_tab(event, 'home')">Klikalne logo</button>
+        <button class="navigation tablinks" onclick="open_tab(event, 'home')" id="logo"></button>
         <button class="navigation tablinks" onclick="open_tab(event, 'contact')">KONTAKT</button>
     </nav>
     <article id="home" class="tabcontent" style="display: grid">
-        HOME
     </article>
     <article id="contact" class="tabcontent">
         <form>
             <label>
                 E-mail <br>
-                <input type="text" placeholder="xyz@gmail.com">
+                <input type="text" placeholder="cuuksik@gmail.com">
             </label>
             <label>
                 Temat wiadomości <br>
                 <select>
                     <option>
-                        TBA
+                        Opinia
                     </option>
                     <option>
-
+                        Problem z zakupem
                     </option>
                     <option>
-
+                        Problem z produktem
                     </option>
                 </select>
             </label>
             <label>
                 Wiadomość <br>
-                <input type="text" placeholder="TBA">
-                TU DAĆ DUŻO MIEJSCA
+                <textarea rows="5" cols="25" placeholder="Kocham cuuksiki za..."></textarea>
             </label>
             <label>
                 <input type="submit">
             </label>
 
         </form>
+    </article>
+    <article id="gallery" class="tabcontent">
+        <div class="image">
+            <video autoplay muted>
+                <source src="Media/candies.mp4" type="video/mp4">
+                Browser doesn't support videos
+            </video>
+            <p></p>
+        </div>
+        <hr>
+        <div class="image">
+            <img src="Media/krowki.png" alt="...">
+            <p>Krówki tradycyjne – 32 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/michalki.png" alt="...">
+            <p>Michałki – 35 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/karmelki.png" alt="...">
+            <p>karmelki o smaku kawowym – 28 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/trufle.png" alt="...">
+            <p>Trufle czekoladowe – 60 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/zelki.png" alt="...">
+            <p>Żelki owocowe – 24 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/galaretki.png" alt="...">
+            <p>Galaretki w czekoladzie – 38 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/pastylki.png" alt="...">
+            <p>Pastylki miętowe – 30 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/kokosowe.png" alt="...">
+            <p>Kuleczki kokosowe – 42 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/slone.png" alt="...">
+            <p>Karmelki solone – 33 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/cytrynowe.png" alt="...">
+            <p>Landrynki cytrynowe – 20 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/draze2.png" alt="...">
+            <p>Draże czekoladowe – 45 zł/kg</p>
+        </div>
+        <div class="image">
+            <img src="Media/orzechy.png" alt="...">
+            <p>Orzeszki w czekoladzie – 48 zł/kg</p>
+        </div>
     </article>
     <footer>
         DAWID SZŁAPA
