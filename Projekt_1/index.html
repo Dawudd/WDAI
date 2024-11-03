@@ -5,20 +5,60 @@
     <title>Cuuksik!</title>
     <link rel="stylesheet" href="stylesheet.css">
     <script src="script.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
-<body>
+<body class="itim-regular">
     <nav>
         <button class="navigation tablinks" onclick="open_tab(event, 'gallery')">GALERIA</button>
         <button class="navigation tablinks" onclick="open_tab(event, 'home')" id="logo"></button>
         <button class="navigation tablinks" onclick="open_tab(event, 'contact')">KONTAKT</button>
     </nav>
     <article id="home" class="tabcontent" style="display: grid">
+        <h1 style="text-align:center">
+            Witamy w Cuuksiku – Królestwie Cukierków z Tradycjami
+        </h1>
+        <div class="home-image">
+            <img src="Media/fabryka.png" alt="Fabryka cukierków" style="width:40vw" class="home-image">
+        </div>
+        <p class="home">
+            <b>Cuuksik</b> to nie tylko sklep z cukierkami, to przede wszystkim historia i pasja do słodyczy, które rozpoczynały swoją drogę do Waszych serc ponad trzy dekady temu. Już od pierwszego dnia działalności naszym priorytetem było tworzenie niezapomnianych smaków, które zachwycają pokolenia. Każdy kawałek słodkości, jaki znajdziesz u nas, to wynik lat doświadczenia, dbałości o szczegóły i ogromnej miłości do tradycji. Cieszymy się, że możemy dzielić się tą historią z Wami każdego dnia!
+        </p>
+        <h3>
+            Szeroki Wybór i Wysoka Jakość, Na Które Możesz Liczyć
+        </h3>
+        <p class="home">
+            Nasza oferta to efekt długoletniej współpracy z najlepszymi dostawcami i producentami słodyczy. Na naszych wirtualnych półkach znajdziecie zarówno klasyczne cukierki, które wszyscy dobrze znamy, jak i unikatowe, ręcznie robione smakołyki dostępne wyłącznie w <b>Cuuksiku</b>. Dla każdego łasucha – od tych, co cenią tradycyjne landrynki, po poszukiwaczy nowoczesnych smaków – <b>Cuuksik</b> oferuje słodkie spełnienie marzeń. To, co wyróżnia nas na tle innych, to niezawodna jakość i świeżość, które możesz poczuć w każdym cukierku.
+        </p>
+        <h3>
+            Pasja i Zaangażowanie w Każdy Słodki Kąsek
+        </h3>
+        <p class="home">
+            Nasz zespół to prawdziwi miłośnicy cukierków! Każdy z nas wkłada serce w wybór asortymentu i tworzenie wyjątkowych kolekcji. Z dumą oferujemy produkty, które sami uwielbiamy i polecamy – starannie wybrane, kolorowe i pełne smaków. Dbamy o to, aby każdy detal, od zapachu po opakowanie, sprawiał radość. W <b>Cuuksiku</b> każde zamówienie jest pakowane z miłością, a każda paczka to nasze małe dzieło sztuki, stworzone specjalnie dla Ciebie!
+        </p>
+        <h3>
+            Dlaczego Wybrać Cuuksika?
+        </h3>
+        <p class="home">
+            Pragniemy, aby każdy, kto dokonuje zakupów w naszym sklepie, miał pewność, że otrzyma to, co najlepsze. Nasze cukierki nie tylko cieszą oko, ale przede wszystkim smakują wyśmienicie. W <b>Cuuksiku</b> rozumiemy, jak ważna jest jakość, dlatego dbamy, aby nasza oferta była zawsze świeża, a nasze produkty pochodziły od sprawdzonych, lokalnych producentów, z którymi łączy nas długa historia współpracy. Wierzymy, że słodycze to coś więcej niż przekąska – to chwila przyjemności, którą chcemy się dzielić.
+        </p>
+        <h3>
+            Zamówienia na Miarę Twoich Potrzeb
+        </h3>
+        <p class="home">
+            W <b>Cuuksiku</b> wiemy, że zakupy przez internet to wygoda, dlatego zadbaliśmy o intuicyjną i szybką platformę zakupową. Bez względu na to, czy potrzebujesz paczki na specjalną okazję, czy też chcesz sprawić sobie chwilę słodkiej przyjemności, nasze produkty są dostępne na wyciągnięcie ręki. Realizujemy zamówienia indywidualne, firmowe, a także specjalne paczki okolicznościowe, które możemy spersonalizować. W <b>Cuuksiku</b> każde zamówienie traktowane jest indywidualnie, z pełnym zaangażowaniem!
+        </p>
+        <h3>
+            Cuuksik – Twoje Miejsce na Słodyczowe Odkrycia
+        </h3>
+        <p class="home">
+            Zapraszamy do naszego świata pełnego smaków i kolorów! W <b>Cuuksiku</b> znajdziesz coś, czego nie znajdziesz nigdzie indziej – magiczną atmosferę, która sprawia, że każdy cukierek smakuje inaczej. Jesteśmy dumni z tego, że możemy tworzyć dla Was miejsce, w którym słodycze ożywają. Odkryj naszą szeroką ofertę i pozwól nam zabrać Cię w podróż po krainie słodkości. Niech <b>Cuuksik</b> stanie się Twoim ulubionym przystankiem w poszukiwaniu wyjątkowych cukierków!
+        </p>
     </article>
     <article id="contact" class="tabcontent">
         <form>
             <label>
                 E-mail <br>
-                <input type="text" placeholder="cuuksik@gmail.com">
+                <input type="email" placeholder="cuuksik@gmail.com" required title="Podany adres email nie jest poprawny!">
             </label>
             <label>
                 Temat wiadomości <br>
@@ -36,7 +76,7 @@
             </label>
             <label>
                 Wiadomość <br>
-                <textarea rows="5" cols="25" placeholder="Kocham cuuksiki za..."></textarea>
+                <textarea rows="5" cols="25" placeholder="Kocham cuuksiki za..." required title="Proszę wypełnić zapytanie!"></textarea>
             </label>
             <label>
                 <input type="submit">
@@ -44,62 +84,61 @@
 
         </form>
     </article>
-    <article id="gallery" class="tabcontent">
-        <div class="image">
+    <article id="gallery" class="tabcontent grid-container">
+        <div class="grid-item" style="grid-column: 1 / -1">
             <video autoplay muted>
                 <source src="Media/candies.mp4" type="video/mp4">
                 Browser doesn't support videos
             </video>
-            <p></p>
         </div>
-        <hr>
-        <div class="image">
+
+        <div class="image grid-item">
             <img src="Media/krowki.png" alt="...">
-            <p>Krówki tradycyjne – 32 zł/kg</p>
+            <p>Krówki tradycyjne – <b>32 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/michalki.png" alt="...">
-            <p>Michałki – 35 zł/kg</p>
+            <p>Michałki – <b>35 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/karmelki.png" alt="...">
-            <p>karmelki o smaku kawowym – 28 zł/kg</p>
+            <p>Karmelki o smaku kawowym – <b>28 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/trufle.png" alt="...">
-            <p>Trufle czekoladowe – 60 zł/kg</p>
+            <p>Trufle czekoladowe – <b>60 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/zelki.png" alt="...">
-            <p>Żelki owocowe – 24 zł/kg</p>
+            <p>Żelki owocowe – <b>24 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/galaretki.png" alt="...">
-            <p>Galaretki w czekoladzie – 38 zł/kg</p>
+            <p>Galaretki w czekoladzie – <b>38 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/pastylki.png" alt="...">
-            <p>Pastylki miętowe – 30 zł/kg</p>
+            <p>Pastylki miętowe – <b>30 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/kokosowe.png" alt="...">
-            <p>Kuleczki kokosowe – 42 zł/kg</p>
+            <p>Kuleczki kokosowe – <b>42 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/slone.png" alt="...">
-            <p>Karmelki solone – 33 zł/kg</p>
+            <p>Karmelki solone – <b>33 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/cytrynowe.png" alt="...">
-            <p>Landrynki cytrynowe – 20 zł/kg</p>
+            <p>Landrynki cytrynowe – <b>20 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/draze2.png" alt="...">
-            <p>Draże czekoladowe – 45 zł/kg</p>
+            <p>Draże czekoladowe – <b>45 zł/kg</b></p>
         </div>
-        <div class="image">
+        <div class="image grid-item">
             <img src="Media/orzechy.png" alt="...">
-            <p>Orzeszki w czekoladzie – 48 zł/kg</p>
+            <p>Orzeszki w czekoladzie – <b>48 zł/kg</b></p>
         </div>
     </article>
     <footer>

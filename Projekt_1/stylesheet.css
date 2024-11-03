@@ -1,3 +1,9 @@
+.itim-regular {
+    font-family: "Itim", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
 body {
     color: #434160;
     background-color: floralwhite;
@@ -9,16 +15,21 @@ nav {
     border-radius: 30px 30px 0 0;
     border: 3px black;
     border-style: groove groove none groove;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    background-image: url("Media/candy.png");
+    background-repeat: round;
 }
 .navigation {
-    font-size: 18px;
-    font-family: Helvetica, sans-serif;
-    padding: 1em;
+    font-size: 100%;
+    margin-top: 15px;
     font-weight: bolder;
     border-radius: 30px;
+    align-items: center;
+    font-family: "Itim", cursive;
 }
 footer {
-    font-family: "Times New Roman", monospace;
     text-align: center;
     font-weight: bolder;
     font-size: 16px;
@@ -26,7 +37,9 @@ footer {
     border-radius: 0 0 30px 30px;
     border: 3px black;
     border-style: none groove groove groove;
-    padding: 10px 0 10px 0
+    padding: 10px 0 10px 0;
+    background-image: url("Media/candy.png");
+    background-repeat: round;
 }
 label {
     padding: 0.5em;
@@ -43,21 +56,23 @@ button {
     transition-duration: 0.25s;
     margin: 1% 5% 1% 5%;
     color: #434160;
+    width: 25vw;
 }
 button:hover {
     background-color: #EEB6B6;
-
 }
 article {
     background-color: #FFE2E2;
+    background-image: url("Media/candy.png");
+    background-repeat: round;
 }
 #logo {
     background-image: url("Media/logoProjekt1.png");
     background-size: 80%;
     background-position: center;
     background-repeat: no-repeat;
-    width: 10em;
-    height: 3em;
+    width: 20vw;
+    height: 4em;
 }
 #message {
     width: 50%;
@@ -65,9 +80,8 @@ article {
     text-align: start;
 }
 .image {
-    display: inline-table;
     width: 25%;
-    min-width: 240px;
+    min-width: 270px;
     max-width: 360px;
     height: auto;
     text-align: center;
@@ -78,12 +92,47 @@ article {
 }
 video {
     border-radius: 30px;
+    width: 60vw;
+    min-width: 270px;
+    max-width: 75%;
+    height: auto;
+    margin: auto;
 }
 img {
     border-radius: 30px;
-    min-width: 240px;
-    max-width: 360px;
+    min-width: 40%;
+    max-width: 100%;
 }
 hr {
     border: #EEB6B6 1px solid
+}
+p {
+    font-size: 24px;
+}
+:invalid {
+    color: #A94160;
+}
+.grid-container {
+    grid-template-columns: repeat(auto-fill, minmax(360px,1fr));
+    gap: 10px;
+    justify-content: center;
+    margin: auto;
+    padding: 0;
+}
+.grid-item {
+    text-align: center;
+    align-self: end;
+}
+.home {
+    font-size: 1em;
+    text-align: justify;
+    padding: 0 20%;
+}
+h3 {
+    padding: 0 15%;
+    text-align: justify;
+}
+.home-image {
+    width: 40vw;
+    margin: auto;
 }

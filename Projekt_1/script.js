@@ -8,6 +8,6 @@ function open_tab(evt, tab_name) {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(tab_name).style.display = "block";
+    document.getElementById(tab_name).style.display = "grid";
     evt.currentTarget.className += " active";
 }
