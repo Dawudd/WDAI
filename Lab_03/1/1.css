@@ -1,0 +1,28 @@
+#mins, #secs {
+    color: darkred;
+}
+body {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    flex-direction: column;
+    background-color: lightsteelblue;
+    font-size: 72px;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+button {
+    border-radius: 12px;
+    font-size: 36px;
+    background-color: #FFFFFF;
+    transition-duration: 300ms;
+}
+button:hover {
+    transition-duration: 300ms;
+    background-color: #DDDDDD;
+}
