@@ -4,10 +4,22 @@
     <meta charset="UTF-8">
     <title>3</title>
     <link rel="stylesheet" href="3.css">
-    <script src="3.js"></script>
+    <script src="3.js" defer></script>
 </head>
 <body>
-    <button onclick="initialize()">INIT</button>
-    <div id="productsContainer" class="container"></div>
+<label class="search">
+    Search
+    <input type="search" id="search" oninput="search()">
+</label>
+<label class="sort">
+    Sort
+    <select id="sort" oninput="sort()">
+        <option value="def">Default</option>
+        <option value="A-Z">A-Z</option>
+        <option value="Z-A">Z-A</option>
+    </select>
+</label>
+
+<div id="productsContainer" class="container"></div>
 </body>
 </html>
