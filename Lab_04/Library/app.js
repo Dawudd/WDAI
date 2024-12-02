@@ -23,38 +23,17 @@ function authenticateToken(req, res, next) {
     });
 }
 
-const db = new sqlite3.Database('./database.db', (err) => {
-    if (err) {
-        console.error('Błąd połączenia z bazą danych:', err.message);
-    }
-});
-
+const db = new sqlite3.Database('./database.db');
 db.serialize(() => {
-    // Books
-    db.run('CREATE TABLE IF NOT EXISTS Books (BookID INTEGER PRIMARY KEY AUTOINCREMENT, Title TEXT NOT NULL, Author TEXT NOT NULL, Year INTEGER NOT NULL)', (err) => {
-        if (err) {
-            console.error('Błąd podczas tworzenia tabeli Books:', err.message);
-        }
-    });
-    // Orders
-    db.run('CREATE TABLE IF NOT EXISTS Orders (OrderID INTEGER PRIMARY KEY AUTOINCREMENT, BookID INTEGER NOT NULL, UserID INTEGER NOT NULL, Amount INTEGER NOT NULL, FOREIGN KEY(BookID) REFERENCES Books(BookID), FOREIGN KEY(UserID) REFERENCES Users(UserID))', (err) => {
-        if (err) {
-            console.error('Błąd podczas tworzenia tabeli Orders:', err.message);
-        }
-    });
-    // Users
-    db.run('CREATE TABLE IF NOT EXISTS Users (UserID INTEGER PRIMARY KEY AUTOINCREMENT, Email TEXT NOT NULL, Password TEXT NOT NULL)', (err) => {
-        if (err) {
-            console.error('Błąd podczas tworzenia tabeli Users:', err.message);
-        }
-    });
+    db.run('CREATE TABLE IF NOT EXISTS Books (BookID INTEGER PRIMARY KEY AUTOINCREMENT, Title TEXT NOT NULL, Author TEXT NOT NULL, Year INTEGER NOT NULL)');
+    db.run('CREATE TABLE IF NOT EXISTS Orders (OrderID INTEGER PRIMARY KEY AUTOINCREMENT, BookID INTEGER NOT NULL, UserID INTEGER NOT NULL, Amount INTEGER NOT NULL, FOREIGN KEY(BookID) REFERENCES Books(BookID), FOREIGN KEY(UserID) REFERENCES Users(UserID))');
+    db.run('CREATE TABLE IF NOT EXISTS Users (UserID INTEGER PRIMARY KEY AUTOINCREMENT, Email TEXT NOT NULL, Password TEXT NOT NULL)');
 });
 
 // Endpoint GET zwracający wszystkie książki
 app.get('/api/books', (req, res) => {
     db.all('SELECT * FROM Books', [], (err, rows) => {
         if (err) {
-            console.error('Błąd zapytania:', err.message);
             res.status(500).json({ error: 'Błąd serwera' });
         } else {
             res.json(rows);
@@ -67,7 +46,6 @@ app.get('/api/books/:BookID', (req, res) => {
     const bookId = req.params.BookID;
     db.get('SELECT * FROM Books WHERE BookID = ?', [bookId], (err, book) => {
         if (err) {
-            console.error('Błąd zapytania:', err.message);
             res.status(500).json({ error: 'Błąd serwera' });
         } else if (!book) {
             res.status(404).json({ error: 'Książka o podanym ID nie została znaleziona' });
@@ -86,7 +64,6 @@ app.post('/api/books', authenticateToken, (req, res) => {
     const query = `INSERT INTO Books (Title, Author, Year) VALUES (?, ?, ?)`;
     db.run(query, [title, author, year], function (err) {
         if (err) {
-            console.error('Błąd podczas dodawania książki:', err.message);
             res.status(500).json({ error: 'Błąd serwera' });
         } else {
             res.status(201).json({ 
@@ -102,7 +79,6 @@ app.delete('/api/books/:BookID', authenticateToken, (req, res) => {
     const query = 'DELETE FROM Books WHERE BookID = ?';
     db.run(query, [bookId], function (err) {
         if (err) {
-            console.error('Błąd podczas usuwania książki:', err.message);
             res.status(500).json({ error: 'Błąd serwera' });
         } else if (this.changes === 0) {
             res.status(404).json({ error: 'Książka o podanym ID nie została znaleziona.' });
@@ -118,7 +94,6 @@ app.get('/api/orders/:UserID', (req, res) => {
     const query = 'SELECT OrderID, BookID, Amount FROM Orders WHERE UserID = ?';
     db.all(query, [userID], (err, rows) => {
         if (err) {
-            console.error('Błąd podczas pobierania zamówień użytkownika:', err.message);
             return res.status(500).json({ error: 'Błąd serwera' });
         }
         res.status(200).json(rows);
@@ -135,7 +110,6 @@ app.post('/api/orders', authenticateToken, (req, res) => {
     const query = `INSERT INTO Orders (BookID, UserID, Amount) VALUES (?, ?, ?)`;
     db.run(query, [BookID, UserID, Amount], function (err) {
         if (err) {
-            console.error('Błąd podczas dodawania zamówienia:', err.message);
             res.status(500).json({ error: 'Błąd serwera' });
         } else {
             res.status(201).json({ 
@@ -151,7 +125,6 @@ app.delete('/api/orders/:OrderID', authenticateToken, (req, res) => {
     const query = 'DELETE FROM Orders WHERE OrderID = ?';
     db.run(query, [orderID], function (err) {
         if (err) {
-            console.error('Błąd podczas usuwania zamówienia:', err.message);
             res.status(500).json({ error: 'Błąd serwera' });
         } else if (this.changes === 0) {
             res.status(404).json({ error: 'Zamówienie o podanym ID nie zostało znalezione.' });
@@ -163,8 +136,8 @@ app.delete('/api/orders/:OrderID', authenticateToken, (req, res) => {
 
 // Endpoint PATCH do zmiany zamówienia po ID
 app.patch('/api/orders/:OrderID', authenticateToken, (req, res) => {
-    const orderId = req.params.OrderID; // Pobranie ID zamówienia z URL
-    const { BookID, Amount } = req.body; // Pobranie danych do aktualizacji z ciała żądania
+    const orderId = req.params.OrderID;
+    const { BookID, Amount } = req.body;
     let updates = [];
     let params = [];
     if (BookID !== undefined) {
@@ -176,14 +149,12 @@ app.patch('/api/orders/:OrderID', authenticateToken, (req, res) => {
         params.push(Amount);
     }
     if (updates.length === 0) {
-        console.log(Amount + ' ' + BookID)
         return res.status(400).json({ error: 'Brak danych do aktualizacji.' });
     }
     const query = `UPDATE Orders SET ${updates.join(', ')} WHERE OrderID = ?`;
     params.push(orderId);
     db.run(query, params, function (err) {
         if (err) {
-            console.error('Błąd podczas aktualizacji zamówienia:', err.message);
             return res.status(500).json({ error: 'Błąd serwera' });
         }
         if (this.changes === 0) {
@@ -233,7 +204,6 @@ app.post('/api/login', (req, res) => {
     const query = 'SELECT * FROM Users WHERE Email = ?';
     db.get(query, [email], (err, user) => {
         if (err) {
-            console.error('Błąd zapytania:', err.message);
             return res.status(500).json({ error: 'Błąd serwera' });
         }
         if (!user) {
@@ -241,7 +211,6 @@ app.post('/api/login', (req, res) => {
         }
         bcrypt.compare(password, user.Password, (err, isMatch) => {
             if (err) {
-                console.error('Błąd podczas sprawdzania hasła:', err.message);
                 return res.status(500).json({ error: 'Błąd serwera' });
             }
             if (!isMatch) {
@@ -255,7 +224,7 @@ app.post('/api/login', (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`http://127.0.0.1:${port}`)
+  console.log(`Listening on http://127.0.0.1:${port}`)
 })
 
 process.on('SIGINT', () => {
