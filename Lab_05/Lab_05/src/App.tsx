@@ -8,7 +8,11 @@ import Logowanie from "./components/Formularze/Logowanie.tsx";
 import Ternary from "./components/Inne/Ternary.tsx";
 import Aktualizacja from "./components/Inne/Aktualizacja.tsx";
 import Studenci from "./components/Studenci/Studenci.tsx";
+import NowyLicznik from "./components/Licznik/NowyLicznik.tsx";
 import StudentManager from "./components/Studenci/StudentManager.tsx";
+import UseEffectLicznik from "./components/Efekty/useEffectLicznik.tsx";
+import Tytul from "./components/Efekty/Tytul.tsx";
+import Odliczanie from "./components/Efekty/Odliczanie.tsx";
 
 function App() {
     return (
@@ -24,8 +28,8 @@ function App() {
                 <h1>2</h1>
                 <h2>Licznik</h2>
                 <Licznik></Licznik>
-                {/*<h2>NowyLicznik</h2>*/}
-                {/*<NowyLicznik></NowyLicznik>*/}
+                <h2>NowyLicznik</h2>
+                <NowyLicznik></NowyLicznik>
             </div>
             <div>
                 <h1>3</h1>
@@ -47,8 +51,21 @@ function App() {
                 <h1>5</h1>
                 <h2>Studenci</h2>
                 <Studenci></Studenci>
-                {/*<h2>StudentManager + Dodawanie</h2>*/}
-                {/*<StudentManager></StudentManager>*/}
+                <h2>StudentManager + Dodawanie</h2>
+                <StudentManager></StudentManager>
+            </div>
+            <div>
+                <h1>6</h1>
+                <h2>UseEffectLicznik</h2>
+                <UseEffectLicznik></UseEffectLicznik>
+                <h2>Tytuł</h2>
+                <Tytul></Tytul>
+                <h2>Odliczanie</h2>
+                <Odliczanie></Odliczanie>
+            </div>
+            <div>
+                <h1>7</h1>
+
             </div>
         </>
     )

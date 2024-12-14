@@ -1,15 +1,9 @@
-import {useState} from "react";
-
-function Przycisk() {
-    const [count, setCount] = useState(0);
-    function click() {
-        setCount(count + 1);
-    }
+function Przycisk({ onClick }) {
     return (
-        <button onClick={click}>
-
+        <button onClick={onClick}>
+            DODAJ
         </button>
-    )
+    );
 }
 
-export default Przycisk
+export default Przycisk;
