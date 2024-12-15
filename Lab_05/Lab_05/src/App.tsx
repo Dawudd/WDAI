@@ -13,6 +13,8 @@ import StudentManager from "./components/Studenci/StudentManager.tsx";
 import UseEffectLicznik from "./components/Efekty/useEffectLicznik.tsx";
 import Tytul from "./components/Efekty/Tytul.tsx";
 import Odliczanie from "./components/Efekty/Odliczanie.tsx";
+import Komentarz from "./components/Produkty/Komentarz.tsx";
+import Komentarze from "./components/Produkty/Komentarze.tsx";
 
 function App() {
     return (
@@ -65,7 +67,8 @@ function App() {
             </div>
             <div>
                 <h1>7</h1>
-
+                <h2>Komentarze</h2>
+                <Komentarze></Komentarze>
             </div>
         </>
     )
